@@ -1,12 +1,12 @@
 FROM baneeishaque/gitpod-workspace-full-vnc-1366x768-tint2-pcmanfm
 
-RUN sudo apt update | tee -a /tmp/apt.log \
+RUN sudo apt update \
  && sudo apt install -y \
-     zsh | tee -a /tmp/apt.log \
+     zsh \
  && sudo rm -rf /var/lib/apt/lists/*
 
 RUN cd $HOME \
- && wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh | tee /tmp/wget-oh-my-zsh.log
+ && wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 
 RUN sed -i 's/_THEME=\"robbyrussell\"/_THEME=\"xiong-chiamiov-plus\"/g' ~/.zshrc
 
